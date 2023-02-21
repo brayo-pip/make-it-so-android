@@ -27,6 +27,8 @@ import com.example.makeitso.R.string as AppText
 import com.example.makeitso.common.composable.*
 import com.example.makeitso.common.ext.basicButton
 import com.example.makeitso.common.ext.fieldModifier
+import com.example.makeitso.common.ext.textButton
+
 
 @Composable
 fun SignUpScreen(
@@ -40,7 +42,10 @@ fun SignUpScreen(
   BasicToolbar(AppText.create_account)
 
   Column(
-    modifier = modifier.fillMaxWidth().fillMaxHeight().verticalScroll(rememberScrollState()),
+    modifier = modifier
+      .fillMaxWidth()
+      .fillMaxHeight()
+      .verticalScroll(rememberScrollState()),
     verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally
   ) {
@@ -50,6 +55,10 @@ fun SignUpScreen(
 
     BasicButton(AppText.create_account, Modifier.basicButton()) {
       viewModel.onSignUpClick(openAndPopUp)
+    }
+
+    BasicTextButton(AppText.have_account, Modifier.textButton()) {
+      viewModel.onSignInClick(openAndPopUp)
     }
   }
 }

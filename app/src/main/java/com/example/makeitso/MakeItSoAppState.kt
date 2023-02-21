@@ -44,7 +44,9 @@ class MakeItSoAppState(
   }
 
   fun popUp() {
-    navController.popBackStack()
+    if (navController.previousBackStackEntry != null){
+      navController.popBackStack()
+    }
   }
 
   fun navigate(route: String) {

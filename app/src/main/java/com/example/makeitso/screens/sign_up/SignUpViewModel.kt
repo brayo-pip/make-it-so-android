@@ -17,6 +17,7 @@ limitations under the License.
 package com.example.makeitso.screens.sign_up
 
 import androidx.compose.runtime.mutableStateOf
+import com.example.makeitso.LOGIN_SCREEN
 import com.example.makeitso.R.string as AppText
 import com.example.makeitso.SETTINGS_SCREEN
 import com.example.makeitso.SIGN_UP_SCREEN
@@ -76,4 +77,11 @@ class SignUpViewModel @Inject constructor(
       openAndPopUp(SETTINGS_SCREEN, SIGN_UP_SCREEN)
     }
   }
+
+  fun onSignInClick(openAndPopUp: (String, String) -> Unit){
+    launchCatching {
+      openAndPopUp(LOGIN_SCREEN, SIGN_UP_SCREEN)
+    }
+  }
 }
+

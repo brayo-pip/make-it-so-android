@@ -1,6 +1,6 @@
 <resources>
     <!-- Common -->
-    <string name="app_name">Make It So</string>
+    <string name="app_name">SharePass</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="repeat_password">Repeat password</string>
@@ -20,6 +20,7 @@
     <string name="create_account">Create account</string>
     <string name="password_error">Your password should have at least six digits and include one digit, one lower case letter and one upper case letter.</string>
     <string name="password_match_error">Passwords do not match.</string>
+    <string name="have_account">Already have an account?</string>
 
     <!-- TasksScreen -->
     <string name="tasks">Tasks</string>
@@ -41,7 +42,33 @@
 
     <!-- Dialogs -->
     <string name="sign_out_title">Sign out?</string>
-    <string name="sign_out_description">You will have to sign in again to see your tasks.</string>
+    <string name="sign_out_description">You will have to sign in again to subscribe.</string>
     <string name="delete_account_title">Delete account?</string>
-    <string name="delete_account_description">You will lose all your tasks and your account will be deleted. This action is irreversible.</string>
+    <string name="delete_account_description">You will lose all your subscriptions and data. This action is irreversible.</string>
+
+    <!-- Tour -->
+    <string name="invite_text">Click accept invite</string>
+    <string name="account_text">Choose the right account to proceed.</string>
+    <string name="location_text">Enter the Location provided in-app</string>
+    <string name="region_text">Click confirm on the region provided</string>
+    <string name="welcome_text">You have successfully joined the premium plan.</string>
+
+    <!-- Landing Page -->
+    <string name="landing">Choose the service you would like to purchase.</string>
+    <string name="spotify">Spotify</string>
+    <string name="Apple_Music">Apple Music</string>
+    <string name="Netflix">Netflix</string>
+    <string name="Nav_Spotify">Navigate to Spotify</string>
+    <string name="Nav_Apple">Navigate to Apple Music</string>
+    <string name="Nav_Netflix">Navigate to Netflix</string>
+
+    <!-- Link -->
+    <string name="accept_invite">Click this link to accept the invite.</string>
+    <string name="tutorial">Click on the Spotify Icon to see a detailed description
+        of how to join the Spotify Plan.
+    </string>
+
+    <!-- Not Done -->
+    <string name="placeholder">Sorry, this service is not currently available.</string>
+
 </resources>

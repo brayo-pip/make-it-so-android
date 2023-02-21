@@ -17,9 +17,9 @@ limitations under the License.
 package com.example.makeitso.screens.login
 
 import androidx.compose.runtime.mutableStateOf
+import com.example.makeitso.LANDING_PAGE
 import com.example.makeitso.LOGIN_SCREEN
 import com.example.makeitso.R.string as AppText
-import com.example.makeitso.SETTINGS_SCREEN
 import com.example.makeitso.common.ext.isValidEmail
 import com.example.makeitso.common.snackbar.SnackbarManager
 import com.example.makeitso.model.service.AccountService
@@ -62,7 +62,7 @@ class LoginViewModel @Inject constructor(
 
     launchCatching {
       accountService.authenticate(email, password)
-      openAndPopUp(SETTINGS_SCREEN, LOGIN_SCREEN)
+      openAndPopUp(LANDING_PAGE, LOGIN_SCREEN)
     }
   }
 

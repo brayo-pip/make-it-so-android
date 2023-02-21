@@ -23,10 +23,10 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
 private val DarkColorPalette =
-  darkColors(primary = BrightOrange, primaryVariant = MediumOrange, secondary = DarkOrange)
+  darkColors(primary = SpotifyGreen, primaryVariant = Coffee, secondary = SpotifyGreen)
 
 private val LightColorPalette =
-  lightColors(primary = BrightOrange, primaryVariant = MediumOrange, secondary = DarkOrange)
+  lightColors(primary = SpotifyGreen, primaryVariant = SpotifyGreen, secondary = SpotifyGreen)
 
 @Composable
 fun MakeItSoTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {

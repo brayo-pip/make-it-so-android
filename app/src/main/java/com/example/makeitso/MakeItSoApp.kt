@@ -32,14 +32,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import com.example.makeitso.common.snackbar.SnackbarManager
-import com.example.makeitso.screens.edit_task.EditTaskScreen
+import com.example.makeitso.screens.coming_soon.NotDone
+import com.example.makeitso.screens.landing_page.LandingPage
 import com.example.makeitso.screens.login.LoginScreen
 import com.example.makeitso.screens.settings.SettingsScreen
 import com.example.makeitso.screens.sign_up.SignUpScreen
 import com.example.makeitso.screens.splash.SplashScreen
-import com.example.makeitso.screens.tasks.TasksScreen
+import com.example.makeitso.screens.spotify.SpotifyLink
+import com.example.makeitso.screens.spotify.Tour
 import com.example.makeitso.theme.MakeItSoTheme
 import kotlinx.coroutines.CoroutineScope
 
@@ -114,15 +115,15 @@ fun NavGraphBuilder.makeItSoGraph(appState: MakeItSoAppState) {
     SignUpScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
   }
 
-  composable(TASKS_SCREEN) { TasksScreen(openScreen = { route -> appState.navigate(route) }) }
+  composable(SPOTIFY_TOUR) { Tour() }
 
-  composable(
-    route = "$EDIT_TASK_SCREEN$TASK_ID_ARG",
-    arguments = listOf(navArgument(TASK_ID) { defaultValue = TASK_DEFAULT_ID })
-  ) {
-    EditTaskScreen(
-      popUpScreen = { appState.popUp() },
-      taskId = it.arguments?.getString(TASK_ID) ?: TASK_DEFAULT_ID
-    )
+  composable(NOT_DONE) { NotDone() }
+
+  composable(LANDING_PAGE) {
+    LandingPage(popUpScreen = { route -> appState.navigate(route)})
   }
+  composable(SPOTIFY_LINK) {
+    SpotifyLink(popUp = {appState.popUp()}, popUpScreen = { route -> appState.navigate(route)})
+  }
+
 }

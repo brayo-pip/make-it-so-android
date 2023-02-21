@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.makeitso"
-        minSdk 21
+        minSdk 23
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -88,6 +88,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.google.firebase:firebase-perf-ktx'
     implementation 'com.google.firebase:firebase-config-ktx'
+
 
     testImplementation 'junit:junit:4.+'
 

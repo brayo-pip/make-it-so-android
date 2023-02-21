@@ -17,8 +17,10 @@ limitations under the License.
 package com.example.makeitso.screens.splash
 
 import androidx.compose.runtime.mutableStateOf
+import com.example.makeitso.LANDING_PAGE
+import com.example.makeitso.LOGIN_SCREEN
+import com.example.makeitso.SIGN_UP_SCREEN
 import com.example.makeitso.SPLASH_SCREEN
-import com.example.makeitso.TASKS_SCREEN
 import com.example.makeitso.model.service.AccountService
 import com.example.makeitso.model.service.ConfigurationService
 import com.example.makeitso.model.service.LogService
@@ -42,7 +44,7 @@ class SplashViewModel @Inject constructor(
   fun onAppStart(openAndPopUp: (String, String) -> Unit) {
 
     showError.value = false
-    if (accountService.hasUser) openAndPopUp(TASKS_SCREEN, SPLASH_SCREEN)
+    if (accountService.hasUser) openAndPopUp(LANDING_PAGE, SPLASH_SCREEN)
     else createAnonymousAccount(openAndPopUp)
   }
 
@@ -54,7 +56,7 @@ class SplashViewModel @Inject constructor(
         showError.value = true
         throw ex
       }
-      openAndPopUp(TASKS_SCREEN, SPLASH_SCREEN)
+      openAndPopUp(SIGN_UP_SCREEN , SPLASH_SCREEN)
     }
   }
 }
