@@ -2,7 +2,9 @@ package com.example.makeitso.screens.spotify
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -43,7 +45,7 @@ fun SpotifyLink(
         addStyle(
             style = SpanStyle(
                 fontSize = 24.sp,
-                color = MaterialTheme.colors.primary
+                color = MaterialTheme.colors.onSurface
             ),
             start = 0, end = str.length-1
         )
@@ -59,7 +61,7 @@ fun SpotifyLink(
         // stores a URL to the text "link"
         addStringAnnotation(
             tag = "URL",
-            annotation = "https://github.com/brayo-pip/",
+            annotation = "https://www.spotify.com/ke-en/family/join/invite/3bb9xb6Za62A41Y/",
             start = startIndex,
             end = endIndex
         )
@@ -86,9 +88,8 @@ fun SpotifyLink(
        }
    ) {_ ->
        Column(
-           Modifier
-               .fillMaxSize()
-               .padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally,
+           Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),
+           horizontalAlignment = Alignment.CenterHorizontally,
            verticalArrangement = Arrangement.Center
        ) {
 

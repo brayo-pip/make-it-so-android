@@ -117,7 +117,9 @@ fun NavGraphBuilder.makeItSoGraph(appState: MakeItSoAppState) {
 
   composable(SPOTIFY_TOUR) { Tour() }
 
-  composable(NOT_DONE) { NotDone() }
+  composable(NOT_DONE) {
+    NotDone( popUpScreen = {route -> appState.navigate(route)}, popUp = {appState.popUp()})
+  }
 
   composable(LANDING_PAGE) {
     LandingPage(popUpScreen = { route -> appState.navigate(route)})

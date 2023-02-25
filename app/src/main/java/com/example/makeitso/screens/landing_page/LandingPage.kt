@@ -6,6 +6,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -36,11 +38,11 @@ fun LandingPage(
                     Text(text = "Choose Service")
                 },
                 backgroundColor = MaterialTheme.colors.primary,
-                navigationIcon = {
-                    IconButton(onClick = { viewModel.onBackButtonClick(popUpScreen) }) {
-                        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Go Back")
-                    }
-                },
+//                navigationIcon = {
+//                    IconButton(onClick = { viewModel.onBackButtonClick(popUpScreen) }) {
+//                        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Go Back")
+//                    }
+//                },
                 actions = {
                     TopAppBarActionButton(
                         imageVector = Icons.Filled.Settings, description = "Settings",
@@ -54,6 +56,7 @@ fun LandingPage(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .padding(8.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally

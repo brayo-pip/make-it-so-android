@@ -14,7 +14,7 @@ class LandingPageViewModel @Inject constructor(
 ): MakeItSoViewModel(logService)  {
 
     fun onBackButtonClick(popUpScreen: (String) ->Unit) {
-        popUpScreen(SETTINGS_SCREEN)
+        //TODO
     }
     fun onSettingsIconClick(popUpScreen: (String) -> Unit) {
         popUpScreen(SETTINGS_SCREEN)
