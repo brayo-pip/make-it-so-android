@@ -115,7 +115,9 @@ fun NavGraphBuilder.makeItSoGraph(appState: MakeItSoAppState) {
     SignUpScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
   }
 
-  composable(SPOTIFY_TOUR) { Tour() }
+  composable(SPOTIFY_TOUR) {
+    Tour()
+  }
 
   composable(NOT_DONE) {
     NotDone( popUpScreen = {route -> appState.navigate(route)}, popUp = {appState.popUp()})
@@ -127,5 +129,4 @@ fun NavGraphBuilder.makeItSoGraph(appState: MakeItSoAppState) {
   composable(SPOTIFY_LINK) {
     SpotifyLink(popUp = {appState.popUp()}, popUpScreen = { route -> appState.navigate(route)})
   }
-
 }

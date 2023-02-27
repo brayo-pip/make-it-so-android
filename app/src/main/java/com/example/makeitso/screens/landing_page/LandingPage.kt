@@ -10,8 +10,10 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Sms
+import androidx.compose.material.icons.filled.Textsms
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -31,6 +33,8 @@ fun LandingPage(
     popUpScreen: (String) -> Unit,
     viewModel: LandingPageViewModel = hiltViewModel()
 ) {
+    val context = LocalContext.current
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -38,11 +42,6 @@ fun LandingPage(
                     Text(text = "Choose Service")
                 },
                 backgroundColor = MaterialTheme.colors.primary,
-//                navigationIcon = {
-//                    IconButton(onClick = { viewModel.onBackButtonClick(popUpScreen) }) {
-//                        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Go Back")
-//                    }
-//                },
                 actions = {
                     TopAppBarActionButton(
                         imageVector = Icons.Filled.Settings, description = "Settings",
@@ -50,28 +49,48 @@ fun LandingPage(
                     )
                 }
             )
-        }
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                modifier = Modifier.padding(16.dp),
+                onClick = { viewModel.onIconClick(context) },
+            ) {
+                Icon(imageVector = Icons.Filled.Sms, contentDescription = "Talk to developer")
+            }
+        },
+        floatingActionButtonPosition = FabPosition.End
     ) {_ ->
-
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(8.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ){
+        Box{
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .padding(8.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
 //                Text(
 //                    text = stringResource(R.string.landing), modifier = Modifier
 //                        .fillMaxWidth()
 //                        .wrapContentWidth(), fontSize = 20.sp, textAlign = TextAlign.Center
 //                )
-            ServiceWithIcon(icon = R.drawable._91px_spotify_icon_svg, Description = R.string.spotify, {viewModel.onSpotifyClick(popUpScreen)})
-            Spacer(modifier = Modifier.height(16.dp))
-            ServiceWithIcon(icon = R.drawable.netflix_logo_png_2616, Description = R.string.Netflix,{viewModel.onNotDone(popUpScreen)})
-            Spacer(modifier = Modifier.height(16.dp))
-            ServiceWithIcon(icon = R.drawable.apple_music_icon_svg, Description =R.string.Apple_Music,{viewModel.onNotDone(popUpScreen)})
-            Spacer(modifier = Modifier.height(16.dp))
+                ServiceWithIcon(
+                    icon = R.drawable._91px_spotify_icon_svg,
+                    Description = R.string.spotify,
+                    { viewModel.onSpotifyClick(popUpScreen) })
+                Spacer(modifier = Modifier.height(16.dp))
+                ServiceWithIcon(
+                    icon = R.drawable.netflix_logo_png_2616,
+                    Description = R.string.Netflix,
+                    { viewModel.onNotDone(popUpScreen) })
+                Spacer(modifier = Modifier.height(16.dp))
+                ServiceWithIcon(
+                    icon = R.drawable.apple_music_icon_svg,
+                    Description = R.string.Apple_Music,
+                    { viewModel.onNotDone(popUpScreen) })
+                Spacer(modifier = Modifier.height(16.dp))
+
+            }
         }
     }
 }
@@ -134,10 +153,3 @@ fun TopAppBarActionButton(
     }
 }
 
-//@Preview
-//@Composable
-//fun Prev() {
-//    MakeItSoTheme(darkTheme = true) {
-//        LandingPage()
-//    }
-//}
